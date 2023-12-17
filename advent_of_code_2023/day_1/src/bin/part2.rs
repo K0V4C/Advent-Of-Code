@@ -5,7 +5,7 @@ fn main() {
     let data = match input {
         Ok(input) => input,
         Err(error) => panic!("Error reading file"),
-    }:
+    };
 
     let lines = data.split('\n').collect::<Vec<&str>>();
 
