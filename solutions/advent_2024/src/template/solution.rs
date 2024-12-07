@@ -12,7 +12,7 @@ pub fn run() {
     let _test_file_path = "./src/template/test.txt";
     let _problem_file_path = "./src/template/problem.txt";
 
-    println!("--- Started solving day 1 part 2 ---");
+    println!("--- Started solving day x part 2 ---");
 
     println!("--- All done! ---");
 
