@@ -28,7 +28,6 @@ pub fn check_if_safe(numbers: Vec<i32>, dampener: bool) -> bool {
             }
 
             for i in 0..numbers.len() {
-
                 let mut new_numbers = numbers.clone();
                 new_numbers.remove(i);
 
