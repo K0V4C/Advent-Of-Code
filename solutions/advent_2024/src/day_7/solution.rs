@@ -26,12 +26,9 @@ fn concat(a: usize, b: usize) -> usize {
         offset *= 10;
     }
 
-    
     a * offset + b
 }
 pub fn run() {
-
-
     println!("--- Started solving day 7 ---");
 
     let _test_file_path = "./src/day_7/test.txt";
@@ -43,44 +40,42 @@ pub fn run() {
 
     for line in read_file.lines() {
         let split_it: Vec<&str> = line.trim().split(':').collect();
-        let target =     split_it[0].parse::<i64>().unwrap();
-        let numbers = split_it[1].split_whitespace().map(|m| m.parse::<i64>().unwrap()).collect::<Vec<i64>>();
-        calculations.push(
-            (target,
-            numbers)
-        );
+        let target = split_it[0].parse::<i64>().unwrap();
+        let numbers = split_it[1]
+            .split_whitespace()
+            .map(|m| m.parse::<i64>().unwrap())
+            .collect::<Vec<i64>>();
+        calculations.push((target, numbers));
     }
 
     let mut total = 0;
 
-    for (target, numbers) in calculations.clone() { 
-
+    for (target, numbers) in calculations.clone() {
         let range = (numbers.len() - 1) as u32;
-        let base:i32 = 2;
-
+        let base: i32 = 2;
 
         for i in 0..base.pow(range) {
             let mut idx = 0;
-            let mut numbers:Vec<i64> = numbers.iter().cloned().rev().collect();
-            while numbers.len() > 1{
-
+            let mut numbers: Vec<i64> = numbers.iter().cloned().rev().collect();
+            while numbers.len() > 1 {
                 let first = numbers.pop().unwrap();
                 let second = numbers.pop().unwrap();
 
                 match (i & (1 << idx)) >> idx {
                     0 => {
                         numbers.push(first + second);
-                    },
+                    }
                     1 => {
                         numbers.push(first * second);
-                    },
-                    _ => {panic!("this should not happen")}
+                    }
+                    _ => {
+                        panic!("this should not happen")
+                    }
                 };
 
                 idx += 1;
             }
 
-        
             let result = numbers.pop().unwrap();
 
             if result == target {
@@ -119,5 +114,4 @@ pub fn run() {
     println!("This is the result for PART 2 >>>> {}", result);
 
     println!("--- All done! ---");
-
 }

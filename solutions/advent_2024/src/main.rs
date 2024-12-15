@@ -5,6 +5,8 @@ mod day_4;
 mod day_5;
 mod day_6;
 mod day_7;
+mod day_8;
+
 fn main() {
     // day_1::solution::run();
     // day_2::solution::run()
@@ -12,7 +14,6 @@ fn main() {
     // day_4::solution::run();
     // day_5::solution::run();
     // day_6::solution::run();
-    day_7::solution::run();
+    // day_7::solution::run();
+    day_8::solution::run();
 }
-
-

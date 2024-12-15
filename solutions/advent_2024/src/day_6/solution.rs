@@ -94,7 +94,8 @@ fn gets_in_loop(
     let mut direction = start_direction;
     let (mut guard_row, mut guard_col) = (start_row, start_col);
 
-    while let Some((next_row, next_col)) = grid.get_next_position((guard_row, guard_col), &mut direction)
+    while let Some((next_row, next_col)) =
+        grid.get_next_position((guard_row, guard_col), &mut direction)
     {
         if (guard_row, guard_col) == (next_row, next_col) {
             if visited_obstacles.contains(&(guard_row, guard_col, direction)) {
@@ -125,7 +126,9 @@ pub fn run() {
     let mut visited = HashSet::new();
     visited.insert((guard_row, guard_col));
 
-    while let Some((next_row, next_col)) = grid.get_next_position((guard_row, guard_col), &mut direction) {
+    while let Some((next_row, next_col)) =
+        grid.get_next_position((guard_row, guard_col), &mut direction)
+    {
         guard_row = next_row;
         guard_col = next_col;
 
@@ -143,7 +146,8 @@ pub fn run() {
     let mut visited = HashSet::new();
     let mut count = 0;
 
-    while let Some((next_row, next_col)) = grid.get_next_position((guard_row, guard_col), &mut direction)
+    while let Some((next_row, next_col)) =
+        grid.get_next_position((guard_row, guard_col), &mut direction)
     {
         visited.insert((guard_row, guard_col));
 
